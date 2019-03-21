@@ -1,0 +1,23 @@
+{% extends 'base_layout.html' %}
+
+{% block fusion %}
+   <div class="container">
+    <div>
+        <h2>{{ article.title }}</h2>
+        <p>{{ article.date }}</p>
+        <img class="responsive-img" src="{{ article.thumb.url }}">
+        <p>{{ article.body }}</p>
+    </div>
+   </div>
+{% endblock %}
+
+{% block fusion %}
+   <div class="container">
+    <div>
+        <h2>{{ article.title }}</h2>
+        <p>{{ article.date }}</p>
+        <img class="responsive-img" src="{{ article.thumb.url }}">
+        <p>{{ article.body }}</p>
+    </div>
+   </div>
+{% endblock %}

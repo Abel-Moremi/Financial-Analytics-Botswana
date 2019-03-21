@@ -1,0 +1,16 @@
+{% extends 'base_layout.html' %}
+
+{% block fusion_chart_lib %}
+     {% load static %}
+        <script type="text/javascript" src="{% static "fusioncharts/fusioncharts.js" %}"></script>
+    	<script type="text/javascript" src="{% static "fusioncharts/themes/fusioncharts.theme.fusion.js" %}"></script>
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="container">
+         <div id="chart">{{ output|safe }}</div>
+    </div>
+
+{% endblock %}
