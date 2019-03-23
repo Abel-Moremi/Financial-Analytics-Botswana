@@ -4,37 +4,138 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Articles</title>
+        <title>
+             {% block title %}
+             {% endblock %}
+        </title>
         <link rel="stylesheet" href="{% static 'materialize/css/materialize.min.css' %}">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'style.css' %}">
 
         {% block fusion_chart_lib %}
         {% endblock %}
     </head>
-    <body>
+    <body class="cream">
+        <!-- start of header -->
         <header>
-            <nav>
-                <ul>
+            <!--Navbar content-->
+            <nav class="cognac">
+                <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <div class="nav-wrapper container">
+                  <a href="{% url 'home' %}" class="brand-logo">FAB</a>
+                  <ul id="nav-mobile" class="right hide-on-med-and-down">
+                     <li><a href="{% url 'home' %}">Home</a></li>
                     {% if user.is_authenticated %}
-
-                   <li>
-                       <form action="{% url 'accounts:logout' %}" method="post">
-                            {% csrf_token %}
-                            <button type="submit">logout</button>
-                       </form>
-                   </li>
-                     {% else %}
-                        <li>
-                            <a href="{% url 'accounts:login' %}">Login</a>
-                        </li>
-                     {% endif %}
-                </ul>
+                         <li><a href="{% url 'market:chart' %}">Market</a></li>
+                         <li><a href="{% url 'articles:list' %}">Articles</a></li>
+                    {% endif %}
+                    <li><a href="{% url 'about' %}">About</a></li>
+                         {% if user.is_authenticated %}
+                           <li>
+                               <form action="{% url 'accounts:logout' %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="btn-floating btn-small  waves-effect waves-light red accent-3" type="submit">
+                                        <i class="material-icons">power_settings_new</i>
+                                    </button>
+                               </form>
+                           </li>
+                         {% else %}
+                            <li>
+                                <a href="{% url 'accounts:login' %}">
+                                    <i class="material-icons">person_outline</i>
+                                </a>
+                            </li>
+                         {% endif %}
+                  </ul>
+                </div>
             </nav>
-        </header>
+            <!-- end of navbar content-->
 
-        <div class="wrapper">
+            <!-- start of sidenav content -->
+            <ul class="collection sidenav" id="slide-out">
+                 <li><a href="{% url 'home' %}">Home</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'market:chart' %}">Market</a></li>
+                    <li><a href="{% url 'articles:list' %}">Articles</a></li>
+                {% endif %}
+               <li><a href="{% url 'about' %}">About</a></li>
+                   {% if user.is_authenticated %}
+                           <li>
+                               <a>
+                                   <form action="{% url 'accounts:logout' %}" method="post">
+                                        {% csrf_token %}
+                                        <button class="btn-floating btn-small waves-effect waves-light red accent-3" type="submit">
+                                            <i class="material-icons">power_settings_new</i>
+                                        </button>
+                                    </form>
+                               </a>
+                           </li>
+                         {% else %}
+                            <li>
+                                <a href="{% url 'accounts:login' %}">
+                                    <i class="material-icons">person_outline</i>
+                                </a>
+                            </li>
+                   {% endif %}
+             </ul>
+            <!-- end of sidenav content -->
+        </header>
+        <!-- end of header -->
+
+        <!-- Start of main content -->
+        <main>
             {% block content %}
             {% endblock %}
+        </main>
+        <!-- end of main content -->
+
+         <!-- start of footer -->
+        <footer class="page-footer cognac">
+        <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Famous Quotes </h5>
+                <p class="grey-text text-lighten-4">
+                     <ol>
+                        <li>"Wealth consists not in having great possessions, but in having few wants" - Epictettus</li>
+                        <li>"The only way you will ever permanently take control of your financial ife is to dig deep and fix the root problem" - Suze Orman</li>
+                        <li>"A budget tells us what we can't afford, but it doesn't keep us from buying it" - Wiliam Feather</li>
+                    </ol>
+                </p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="{% url 'home' %}"><i class="material-icons">home</i></a></li>
+                    {% if user.is_authenticated %}
+                         <li><a class="grey-text text-lighten-3" href="{% url 'market:chart' %}"><i class="material-icons">trending_up</i></a></li>
+                         <li><a class="grey-text text-lighten-3" href="{% url 'articles:list' %}"><i class="material-icons">ballot</i></a></li>
+                    {% endif %}
+                    <li><a class="grey-text text-lighten-3" href="{% url 'about' %}"><i class="material-icons">info</i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2019 Copyright
+            <a class="grey-text text-lighten-4 right" href="#!">We analyze for you</a>
+            </div>
+          </div>
+        </footer>
+        <!-- end of footer -->
+
+
+        <div>
+            <script src="{% static 'jquery/jquery.min.js' %}"></script>
+            <script src="{% static 'materialize/js/materialize.min.js' %}"></script>
+            <script>
+                 $(document).ready(function(){
+                     $('.sidenav').sidenav();
+                      {% block jquery %}
+                      {% endblock %}
+                 });
+            </script>
         </div>
     </body>
 </html>

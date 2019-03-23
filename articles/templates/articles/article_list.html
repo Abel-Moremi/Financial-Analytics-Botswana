@@ -1,17 +1,60 @@
 {% extends 'base_layout.html' %}
+
+{% block title %}
+    Article List
+{% endblock %}
+
 {% block content %}
-    <div class="container">
-        <ul class="collection">
-            {%  for article in articles %}
-                <li class="collection-item">
-                     <div class="article">
-                         <a href="{% url 'articles:detail' slug=article.slug %}" class="flow-text">{{ article.title }}</a>
-                         <p>{{ article.snippet }}</p>
-                         <p>{{ article.date }}</p>
-                         <p>Added by {{ article.author.username }}</p>
-                     </div>
-                </li>
-             {% endfor %}
-        </ul>
+
+    <!-- Page title and tags starts -->
+    <div class="center-align" style="margin-bottom: 20px;">
+    <h3 style="font-weight: bold;">Articles</h3>
+    <h6 class="grey-text text-darken-2">
+        "Finance is not merely about making money. It's about achieving our
+        deep goals and protecting the fruits of our labor. It's about stewardship
+        and, therefore, about achieving the good society." - Robert J. Shiller
+    </h6>
+
+    <!-- Tags -->
+     <div style="margin-top: 20px;">
+      <div class="chip">
+        Finance
+      </div>
+
+      <div class="chip">
+        Corporate
+      </div>
+
+      <div class="chip">
+        Community
+      </div>
+    </div> <!-- Tags End hers-->
+
     </div>
+    <!-- Page title and tags end here -->
+
+    <div class="container">
+            <div class="row">
+                {%  for article in articles %}
+                <div class="col s12 m4 ">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <img class="responsive-img materialboxed" src="{{ article.thumb.url }}">
+                            <a href="{% url 'articles:detail' slug=article.slug %}"  class="btn-floating halfway-fab waves-effect waves-light coffee-pot"><i class="material-icons">book</i></a>
+                        </div>
+                        <div class="card-content">
+                            <p class="grey-text">{{ article.date }}</p>
+                            <h5 class="coffee-pot-text">{{ article.title }}</h5>
+                            <span>{{ article.author }}</span>
+                            <p>{{ article.snippet }}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="{% url 'articles:detail' slug=article.slug %}" class="deep-orange-text">Read More</a>
+                         </div>
+                    </div>
+                </div>
+                 {% endfor %}
+            </div>
+    </div>
+
 {% endblock %}

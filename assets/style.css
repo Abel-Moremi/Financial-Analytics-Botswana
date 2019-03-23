@@ -1,2 +1,89 @@
+/*
+* === Theme colors ===
+*/
+
+/*
+* --- Cream ---
+*/
+.cream {
+  background-color: #F9F7F3 !important;
+}
+
+.cream-text {
+  color: #F9F7F3 !important;
+}
+/*
+* --- Seaform green ---
+*/
+.seaform-green {
+  background-color: #BDF0D6 !important;
+}
+
+.seafom-green-text {
+  color: #BDF0D6 !important;
+}
+/*
+* --- Cognac ---
+*/
+.cognac {
+  background-color: #94756F !important;
+}
+
+.cognac-text {
+  color: #94756F !important;
+}
+/*
+* --- Coffe pot ---
+*/
+.coffee-pot {
+  background-color: #5E6162 !important;
+}
+
+.coffee-pot-text {
+  color: #5E6162 !important;
+}
 
 
+/*
+* === Body && Main ===
+*/
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+/*
+* === Forms ===
+*/
+/*
+* --- form inputs ---
+*/
+.input-field input[type=date]:focus + label,
+.input-field input[type=text]:focus + label,
+.input-field input[type=email]:focus + label,
+.input-field input[type=password]:focus + label {
+    color: #5E6162;
+}
+
+.input-field input[type=date]:focus,
+.input-field input[type=text]:focus,
+.input-field input[type=email]:focus,
+.input-field input[type=password]:focus {
+    border-bottom: 2px solid #5E6162;
+    box-shadow: none;
+}
+
+/*
+* --- form components ---
+*/
+
+#outerBorderForm{
+    display: inline-block;
+    padding: 32px 48px 0px 48px;
+    border: 1px solid #EEE;
+}

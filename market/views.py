@@ -1,17 +1,18 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
 # Include the `fusioncharts.py` file that contains functions to embed the charts.
 from market.fusioncharts import FusionCharts
 from market.fusioncharts import FusionTable
 from market.fusioncharts import TimeSeries
-import requests
+
 
 # Testing things out
 from market.resource import BarclaysDailyResource
 from django.contrib.staticfiles.storage import staticfiles_storage
 import json
 
-
+@login_required(login_url="/accounts/login")
 def chart(request):
 
     dataset_temp = BarclaysDailyResource().export().json
@@ -21,12 +22,13 @@ def chart(request):
     schema_data = open('C:/Users/Zozo/Google Drive/Semester 8/CSI408'
                        '/Project Source Code/financialanalyticsbotswana'
                        '/assets/schema.json', 'r')
+
+    # path = staticfiles_storage.url('schema.json')
+    # schema_data = open(path, 'r')
+
     schema = json.loads(schema_data.read())
     print(schema)
 
-
-    #data = requests.get('https://s3.eu-central-1.amazonaws.com/fusion.store/ft/data/line-chart-with-time-axis-data.json').text
-    #schema = requests.get('https://s3.eu-central-1.amazonaws.com/fusion.store/ft/schema/line-chart-with-time-axis-schema.json').text
 
     fusionTable = FusionTable(schema, data)
     timeSeries = TimeSeries(fusionTable)
@@ -45,13 +47,13 @@ def chart(request):
                                             type: 'line'
                                             },
                                             format: {
-                                            prefix: 'P'
+                                            prefix: '(t)'
                                             },
                                             title: 'Price Value'
                                         }]""")
 
     # Create an object for the chart using the FusionCharts class constructor
-    fcChart = FusionCharts("timeseries", "ex1", 700, 450, "chart", "json", timeSeries)
+    fcChart = FusionCharts("timeseries", "ex1", "100%", "100%", "chart", "json", timeSeries)
 
      # returning complete JavaScript and HTML code, which is used to generate chart in the browsers.
     return render(request, 'graphs/market.html', {

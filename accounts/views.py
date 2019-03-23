@@ -17,7 +17,7 @@ def login_view(request):
             if 'next' in request.POST:
                 return redirect(request.POST.get('next'))
 
-            return redirect('articles:list')
+            return redirect('market:chart')
     else:
         form = AuthenticationForm()
 
@@ -27,4 +27,4 @@ def login_view(request):
 def logout_view(request):
     if request.method == 'POST':
         logout(request)
-        return redirect('articles:list')
+        return redirect('home')
