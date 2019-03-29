@@ -9,8 +9,80 @@
 
 {% block content %}
 
-    <div class="container">
-         <div id="chart">{{ output|safe }}</div>
+      <!-- Page title and tags starts -->
+    <div class="center-align" style="margin-bottom: 20px;">
+        <h3 style="font-weight: bold;">Market</h3>
+        <h6 class="grey-text text-darken-2 container">
+            "Finance is not merely about making money. It's about achieving our
+            deep goals and protecting the fruits of our labor. It's about stewardship
+            and, therefore, about achieving the good society." - Robert J. Shiller
+        </h6>
     </div>
 
+    <br>
+
+    <div class="row center-align col s12 m8 l8">
+        <div class="col s12 m6 l6">
+             <!-- Tags -->
+             <div style="margin-top: 20px;">
+              <div class="chip">
+                Barclays
+              </div>
+
+              <div class="chip">
+                Bihl
+              </div>
+
+              <div class="chip">
+                Sefalana
+              </div>
+            </div><!-- Tags End hers-->
+        </div>
+        <div class="col s12 m6 l6">
+            <!-- Switch -->
+              <div class="switch">
+                <label>
+                  Predictor
+                  <input type="checkbox">
+                  <span class="lever"></span>
+                </label>
+              </div>
+            <!-- end of switch -->
+            <br>
+             <!-- Switch -->
+              <div class="switch">
+                <label>
+                  Candlestick
+                  <input type="checkbox">
+                  <span class="lever"></span>
+                </label>
+              </div>
+            <!-- end of switch -->
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="center col s12 m4 l2">
+            control panel
+        </div>
+        <div class="center-align col s12 m8 l8">
+             <div class="col s12 m12 l12" id="chart">
+                 {{ output|safe }}
+             </div>
+        </div>
+        <div class="center col s12 m12 l2">
+            <div class="row">
+                <div class="col s12 m12 l12"> Daily dose </div>
+                <div class="col s12 m12 l12"> Articles </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+{% endblock %}
+
+{% block jquery %}
+    $('.fixed-action-btn').floatingActionButton({
+         direction: 'right'
+    });
 {% endblock %}

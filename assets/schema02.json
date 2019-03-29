@@ -1,0 +1,11 @@
+[{
+  "name": "date",
+  "type": "date",
+  "format": "%Y-%m-%d"
+}, {
+  "name": "Barclays",
+  "type": "number"
+}, {
+  "name": "Bihl",
+  "type": "number"
+}]

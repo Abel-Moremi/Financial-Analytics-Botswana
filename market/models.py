@@ -47,3 +47,48 @@ class BarclaysDaily(models.Model):
 
     def __str__(self):
         return str(self.date)
+
+
+class BihlDaily(models.Model):
+    date = models.ForeignKey(
+        Day, on_delete=models.CASCADE
+    )
+    identifier = models.ForeignKey(
+        Identifier, on_delete=models.CASCADE
+    )
+    price = models.PositiveIntegerField(default=0)
+    volume = models.PositiveIntegerField(default=0)
+    low = models.DecimalField(decimal_places=2, max_digits=6, null=True)
+    high = models.DecimalField(decimal_places=2, max_digits=6, null=True)
+
+    class Meta:
+        verbose_name = 'Bihl Daily'
+        verbose_name_plural = 'Bihl Dailies'
+        unique_together = (('date', 'identifier'),)
+        ordering = ['-date']
+
+    def __str__(self):
+        return str(self.date)
+
+
+class ChoppiesDaily(models.Model):
+    date = models.ForeignKey(
+        Day, on_delete=models.CASCADE
+    )
+    identifier = models.ForeignKey(
+        Identifier, on_delete=models.CASCADE
+    )
+    price = models.PositiveIntegerField(default=0)
+    volume = models.PositiveIntegerField(default=0)
+    low = models.DecimalField(decimal_places=2, max_digits=6, null=True)
+    high = models.DecimalField(decimal_places=2, max_digits=6, null=True)
+
+    class Meta:
+        verbose_name = 'Choppies Daily'
+        verbose_name_plural = 'Choppies Dailies'
+        unique_together = (('date', 'identifier'),)
+        ordering = ['-date']
+
+    def __str__(self):
+        return str(self.date)
+

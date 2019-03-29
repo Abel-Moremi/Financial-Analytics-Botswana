@@ -1,5 +1,5 @@
 from import_export import resources
-from .models import Day, Identifier, BarclaysDaily
+from .models import Day, Identifier, BarclaysDaily, BihlDaily, ChoppiesDaily
 
 
 # ModelResources to describe import and export
@@ -41,5 +41,33 @@ class BarclaysDailyResource(resources.ModelResource):
         report_skipped = True
         fields = ('date', 'identifier', 'price', 'volume', 'low', 'high',)
         raise_errors = True
-        #exclude = ('identifier', 'volume', 'low', 'high',)
         import_id_fields = ['date', 'identifier']
+
+
+class BihlDailyResource(resources.ModelResource):
+
+    def get_instance(self, instance_loader, row):
+        return False
+
+    class Meta:
+        model = BihlDaily
+        report_skipped = True
+        fields = ('date', 'identifier', 'price', 'volume', 'low', 'high',)
+        raise_errors = True
+        import_id_fields = ['date', 'identifier']
+
+
+class ChoppiesDailyResource(resources.ModelResource):
+
+    def get_instance(self, instance_loader, row):
+        return False
+
+    class Meta:
+        model = ChoppiesDaily
+        report_skipped = True
+        fields = ('date', 'identifier', 'price', 'volume', 'low', 'high',)
+        raise_errors = True
+        import_id_fields = ['date', 'identifier']
+
+
+
