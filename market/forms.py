@@ -1,5 +1,5 @@
 from django import forms
-from .models import Day, BarclaysDaily
+from .models import Day
 
 
 class DateInput(forms.DateInput):
@@ -18,13 +18,55 @@ class DayAdminForm(forms.ModelForm):
     ), DateInput()
 
 
-class BarclaysAdminForm(forms.ModelForm):
+class DomesticSecurietiesForm(forms.Form):
+    d_barclays_checkbox = forms.BooleanField(required=False)
+    d_bihl_checkbox = forms.BooleanField(required=False)
+    d_choppies_checkbox = forms.BooleanField(required=False)
+    d_cresta_checkbox = forms.BooleanField(required=False)
+    d_engen_checkbox = forms.BooleanField(required=False)
+    d_fnbb_checkbox = forms.BooleanField(required=False)
+    d_furnmart_checkbox = forms.BooleanField(required=False)
+    d_g4s_checkbox = forms.BooleanField(required=False)
+    d_letlole_checkbox = forms.BooleanField(required=False)
+    d_letshego_checkbox = forms.BooleanField(required=False)
+    d_minergy_checkbox = forms.BooleanField(required=False)
+    d_nap_checkbox = forms.BooleanField(required=False)
+    d_olympia_checkbox = forms.BooleanField(required=False)
+    d_primetime_checkbox = forms.BooleanField(required=False)
+    d_rcdp_checkbox = forms.BooleanField(required=False)
+    d_sechaba_checkbox = forms.BooleanField(required=False)
+    d_seedco_checkbox = forms.BooleanField(required=False)
+    d_sefalana_checkbox = forms.BooleanField(required=False)
+    d_stanchart_checkbox = forms.BooleanField(required=False)
+    d_turnstar_checkbox = forms.BooleanField(required=False)
 
-    class Meta:
-        model = BarclaysDaily
-        fields = ['date', ]
+    d_barclays_checkbox.widget.attrs.update({'class': 'domesticStocks'})
+    d_bihl_checkbox.widget.attrs.update({'class': 'domesticStocks'})
+    d_choppies_checkbox.widget.attrs.update({'class': 'domesticStocks'})
+    d_cresta_checkbox.widget.attrs.update({'class': 'domesticStocks'})
+    d_engen_checkbox.widget.attrs.update({'class': 'domesticStocks'})
+    d_fnbb_checkbox.widget.attrs.update({'class': 'domesticStocks'})
+    d_furnmart_checkbox.widget.attrs.update({'class': 'domesticStocks'})
+    d_g4s_checkbox.widget.attrs.update({'class': 'domesticStocks'})
+    d_letlole_checkbox.widget.attrs.update({'class': 'domesticStocks'})
+    d_letshego_checkbox.widget.attrs.update({'class': 'domesticStocks'})
+    d_minergy_checkbox.widget.attrs.update({'class': 'domesticStocks'})
+    d_nap_checkbox.widget.attrs.update({'class': 'domesticStocks'})
+    d_olympia_checkbox.widget.attrs.update({'class': 'domesticStocks'})
+    d_primetime_checkbox.widget.attrs.update({'class': 'domesticStocks'})
+    d_rcdp_checkbox.widget.attrs.update({'class': 'domesticStocks'})
+    d_sechaba_checkbox.widget.attrs.update({'class': 'domesticStocks'})
+    d_seedco_checkbox.widget.attrs.update({'class': 'domesticStocks'})
+    d_sefalana_checkbox.widget.attrs.update({'class': 'domesticStocks'})
+    d_stanchart_checkbox.widget.attrs.update({'class': 'domesticStocks'})
+    d_turnstar_checkbox.widget.attrs.update({'class': 'domesticStocks'})
 
-    date = forms.DateField(
-        widget=forms.DateInput(format='%d-%b-%Y', attrs={'class': 'datepicker'}),
-        input_formats=('%d-%b-%Y', )
-    ), DateInput()
+
+
+
+
+
+
+    #def add_prefix(self, field_name):
+        #field_name = 'domesticStock'
+        #return super(DomesticSecurietiesForm, self).add_prefix(field_name)

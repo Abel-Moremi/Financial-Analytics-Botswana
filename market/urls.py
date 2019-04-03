@@ -6,3 +6,4 @@ app_name = 'market'
 urlpatterns = [
     path('', views.chart, name="chart"),
 ]
+

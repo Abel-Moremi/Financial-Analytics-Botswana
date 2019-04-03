@@ -25,17 +25,13 @@
         <div class="col s12 m6 l6">
              <!-- Tags -->
              <div style="margin-top: 20px;">
-              <div class="chip">
-                Barclays
-              </div>
 
-              <div class="chip">
-                Bihl
-              </div>
+                 {% for graph_name in selectedGraph %}
+                      <div class="chip">
+                        {{ graph_name }}
+                      </div>
+                 {% endfor %}
 
-              <div class="chip">
-                Sefalana
-              </div>
             </div><!-- Tags End hers-->
         </div>
         <div class="col s12 m6 l6">
@@ -62,27 +58,341 @@
     </div>
 
     <div class="row">
-        <div class="center col s12 m4 l2">
-            control panel
-        </div>
-        <div class="center-align col s12 m8 l8">
+        <!-- Control Panel -->
+        <section class="center col s12 m4 l2">
+
+           <!-- Modal Trigger -->
+            <div>
+                  <a class="btn-floating btn-large waves-effect waves-light red modal-trigger"  href="#domesticStockModal">
+                      <i class="material-icons">add</i>
+                  </a>
+            </div>
+              <br>
+              <form action="{% url 'market:chart' %}" method="post" >
+                   {% csrf_token %}
+                  <!-- Modal Structure -->
+                  <div id="domesticStockModal" class="modal modal-fixed-footer">
+                    <div class="modal-content">
+                      <h4>Domestic Stocks</h4>
+                        <!-- tab stocks -->
+                        <div>
+                            <ul class="tabs">
+                                <li class="tab">
+                                    <a href="#financialSev" class="cognac-text text-darken-4">Financial & nsurance</a>
+                                </li>
+                                <li class="tab">
+                                    <a href="#retail" class="cognac-text text-darken-4">Retail</a>
+                                </li>
+                                <li class="tab">
+                                    <a href="#property" class="cognac-text text-darken-4">Property</a>
+                                </li>
+                                <li class="tab">
+                                    <a href="#banking" class="cognac-text text-darken-4">Banking</a>
+                                </li>
+                                <li class="tab">
+                                    <a href="#other" class="cognac-text text-darken-4">Other</a>
+                                </li>
+                            </ul>
+                           <!-- financial Services and Insurance tab -->
+                            <div class="col s12" id ="financialSev">
+                                <div class="container">
+
+                                    <div class="col s12 m6 l6 center-align">
+                                        <br>
+                                        <!-- Switch -->
+                                          <div class="switch">
+                                            <label>
+                                              Bihl
+                                              <!--<input type="checkbox" name="bihl">-->
+                                                {{ domesticform.d_bihl_checkbox }}
+                                              <span class="lever"></span>
+                                            </label>
+                                          </div>
+                                        <!-- end of switch -->
+                                        <br>
+                                        <!-- Switch -->
+                                          <div class="switch">
+                                            <label>
+                                              Letshego
+                                             {{ domesticform.d_letshego_checkbox }}
+                                              <span class="lever"></span>
+                                            </label>
+                                          </div>
+                                        <!-- end of switch -->
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- end of financial Services and Insurance tab -->
+                            <!-- Retail and Wholesale tab -->
+                            <div class="col s12" id ="retail">
+                                <div class="container">
+
+                                    <div class="col s12 m6 l6">
+                                        <br>
+                                        <!-- Switch -->
+                                          <div class="switch">
+                                            <label>
+                                              Choppies
+                                               {{ domesticform.d_choppies_checkbox }}
+                                              <span class="lever"></span>
+                                            </label>
+                                          </div>
+                                        <!-- end of switch -->
+                                        <br>
+                                        <!-- Switch -->
+                                          <div class="switch">
+                                            <label>
+                                              Furnmart
+                                              {{ domesticform.d_furnmart_checkbox }}
+                                              <span class="lever"></span>
+                                            </label>
+                                          </div>
+                                        <!-- end of switch -->
+                                        <br>
+                                         <!-- Switch -->
+                                          <div class="switch">
+                                            <label>
+                                              Sechaba
+                                                {{ domesticform.d_sechaba_checkbox}}
+                                              <span class="lever"></span>
+                                            </label>
+                                          </div>
+                                        <!-- end of switch -->
+                                        <br>
+                                         <!-- Switch -->
+                                          <div class="switch">
+                                            <label>
+                                              Sefalana
+                                            {{ domesticform.d_sefalana_checkbox }}
+                                              <span class="lever"></span>
+                                            </label>
+                                          </div>
+                                        <!-- end of switch -->
+                                        <br>
+                                        <!-- Switch -->
+                                          <div class="switch">
+                                            <label>
+                                              Olympia
+                                             {{ domesticform.d_olympia_checkbox }}
+                                              <span class="lever"></span>
+                                            </label>
+                                          </div>
+                                        <!-- end of switch -->
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- end Retail and Wholesale tab -->
+                            <!-- Property tab -->
+                            <div class="col s12" id ="property">
+                                <div class="container">
+
+                                    <div class="col s12 m6 l6">
+                                        <br>
+                                        <!-- Switch -->
+                                          <div class="switch">
+                                            <label>
+                                              Turnstar
+                                             {{ domesticform.d_turnstar_checkbox }}
+                                              <span class="lever"></span>
+                                            </label>
+                                          </div>
+                                        <!-- end of switch -->
+                                        <br>
+                                        <!-- Switch -->
+                                          <div class="switch">
+                                            <label>
+                                              RDCP
+                                             {{ domesticform.d_rcdp_checkbox }}
+                                              <span class="lever"></span>
+                                            </label>
+                                          </div>
+                                        <!-- end of switch -->
+                                        <br>
+                                         <!-- Switch -->
+                                          <div class="switch">
+                                            <label>
+                                              PrimeTime
+                                             {{ domesticform.d_primetime_checkbox }}
+                                              <span class="lever"></span>
+                                            </label>
+                                          </div>
+                                        <!-- end of switch -->
+                                        <br>
+                                         <!-- Switch -->
+                                          <div class="switch">
+                                            <label>
+                                              Letlole
+                                             {{ domesticform.d_letlole_checkbox }}
+                                              <span class="lever"></span>
+                                            </label>
+                                          </div>
+                                        <!-- end of switch -->
+                                        <br>
+                                        <!-- Switch -->
+                                          <div class="switch">
+                                            <label>
+                                              NAP
+                                              {{ domesticform.d_nap_checkbox }}
+                                              <span class="lever"></span>
+                                            </label>
+                                          </div>
+                                        <!-- end of switch -->
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- end Property tab -->
+                             <!-- Banking tab -->
+                            <div class="col s12" id ="banking">
+                                <div class="container">
+
+                                    <div class="col s12 m6 l6 center-align">
+                                        <br>
+                                        <!-- Switch -->
+                                          <div class="switch">
+                                            <label>
+                                              Barclays
+                                              {{ domesticform.d_barclays_checkbox }}
+                                              <span class="lever"></span>
+                                            </label>
+                                          </div>
+                                        <!-- end of switch -->
+                                        <br>
+                                        <!-- Switch -->
+                                          <div class="switch">
+                                            <label>
+                                              FNBB
+                                              {{ domesticform.d_fnbb_checkbox }}
+                                            </label>
+                                          </div>
+                                        <!-- end of switch -->
+                                        <br>
+                                         <!-- Switch -->
+                                          <div class="switch">
+                                            <label>
+                                              Stanchart
+                                              {{ domesticform.d_stanchart_checkbox }}
+                                              <span class="lever"></span>
+                                            </label>
+                                          </div>
+                                        <!-- end of switch -->
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- Banking tab -->
+                             <!-- Other tab -->
+                            <div class="col s12" id ="other">
+                                <div class="container">
+
+                                    <div class="col s12 m6 l6">
+                                        <br>
+                                        <!-- Switch -->
+                                          <div class="switch">
+                                            <label>
+                                              G4S
+                                             {{ domesticform.d_g4s_checkbox }}
+                                              <span class="lever"></span>
+                                            </label>
+                                          </div>
+                                        <!-- end of switch -->
+                                        <br>
+                                        <!-- Switch -->
+                                          <div class="switch">
+                                            <label>
+                                              Cresta
+                                              {{ domesticform.d_cresta_checkbox }}
+                                              <span class="lever"></span>
+                                            </label>
+                                          </div>
+                                        <!-- end of switch -->
+                                        <br>
+                                         <!-- Switch -->
+                                          <div class="switch">
+                                            <label>
+                                              Engen
+                                             {{ domesticform.d_engen_checkbox }}
+                                              <span class="lever"></span>
+                                            </label>
+                                          </div>
+                                        <!-- end of switch -->
+                                        <br>
+                                        <!-- Switch -->
+                                          <div class="switch">
+                                            <label>
+                                              Minergy
+                                              {{ domesticform.d_minergy_checkbox }}
+                                              <span class="lever"></span>
+                                            </label>
+                                          </div>
+                                        <!-- end of switch -->
+                                        <br>
+                                        <!-- Switch -->
+                                          <div class="switch">
+                                            <label>
+                                              Seed Co
+                                              {{ domesticform.d_seedco_checkbox }}
+                                              <span class="lever"></span>
+                                            </label>
+                                          </div>
+                                        <!-- end of switch -->
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- Other tab -->
+                        </div>
+                        <!-- end of tab stocks -->
+                    </div>
+                    <div class="modal-footer">
+                      <button class="modal-close waves-effect waves-green btn-flat cognac cream-text" type="submit">Okay</button>
+                    </div>
+                  </div>
+              </form>
+              <div>
+                  <a class="btn-floating btn-large waves-effect waves-light blue"  href="{% url 'market:chart' %}">
+                      <i class="material-icons">refresh</i>
+                  </a>
+              </div>
+              <br>
+        </section>
+        <!-- end of control Panel -->
+        <!-- Graph -->
+        <section class="center-align col s12 m8 l8">
              <div class="col s12 m12 l12" id="chart">
                  {{ output|safe }}
              </div>
-        </div>
-        <div class="center col s12 m12 l2">
+        </section>
+        <!-- end of graph -->
+        <!-- Daily dose && Articles -->
+        <section class="center col s12 m12 l2">
             <div class="row">
                 <div class="col s12 m12 l12"> Daily dose </div>
                 <div class="col s12 m12 l12"> Articles </div>
             </div>
-        </div>
+        </section>
+         <!-- end of Daily dose && Articles -->
     </div>
 
     <br>
 {% endblock %}
-
 {% block jquery %}
-    $('.fixed-action-btn').floatingActionButton({
-         direction: 'right'
+    $('.modal').modal();
+    $('.tabs').tabs();
+    $("form").click(function (){
+
+         let checkboxes = document.getElementsByClassName("domesticStocks");
+         let numberOfCheckedItems = 0;
+
+         for(let i = 0; i < checkboxes.length; i++){
+            if(checkboxes[i].checked)
+            numberOfCheckedItems++;
+         }
+         if(numberOfCheckedItems > 3){
+            M.toast({html: 'Choose 3 or less Domestic Stocks!', classes: 'rounded'});
+            return false;
+         }
     });
 {% endblock %}
