@@ -86,3 +86,52 @@ main {
     padding: 32px 48px 0px 48px;
     border: 1px solid #EEE;
 }
+
+/*
+* --- Switch component ---
+*/
+.switch label input[type=checkbox]:checked+.lever {
+  background-color: #94756F !important;
+}
+
+.switch label input[type=checkbox]:checked+.lever:after {
+  background-color:  #94756F !important;
+}
+
+/*
+* --- Daily dose carasoul ---
+*/
+.price{
+    display:inline-block;
+    line-height:1;
+    padding-bottom:7px;
+    position:relative;
+    text-align:center;
+    white-space:nowrap;
+}
+.label{
+    display:inline;
+    font-size:11px;
+    padding:6px 0 2px;
+}
+.currency{
+    font-size:25px;
+    position:relative;
+    top:-26px;
+}
+.integer{
+    font-size:50px;
+}
+.decimal{
+    font-size:24px;
+    position:relative;
+    top:-26px;
+}
+.period{
+    bottom:-15px;
+    font-size:10px;
+}
+.empty{
+    background:#fff;
+    border-top:none;
+}

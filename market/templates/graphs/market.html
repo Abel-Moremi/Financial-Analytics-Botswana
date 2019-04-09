@@ -1,5 +1,9 @@
 {% extends 'base_layout.html' %}
 
+{% block title %}
+    FAB | Market
+{% endblock %}
+
 {% block fusion_chart_lib %}
      {% load static %}
         <script type="text/javascript" src="{% static "fusioncharts/fusioncharts.js" %}"></script>
@@ -61,14 +65,14 @@
         <!-- Control Panel -->
         <section class="center col s12 m4 l2">
 
-           <!-- Modal Trigger -->
+           <!-- Domestic Modal Trigger -->
             <div>
                   <a class="btn-floating btn-large waves-effect waves-light red modal-trigger"  href="#domesticStockModal">
                       <i class="material-icons">add</i>
                   </a>
             </div>
               <br>
-              <form action="{% url 'market:chart' %}" method="post" >
+              <form id="form1" action="{% url 'market:chart' %}" method="post" >
                    {% csrf_token %}
                   <!-- Modal Structure -->
                   <div id="domesticStockModal" class="modal modal-fixed-footer">
@@ -154,7 +158,7 @@
                                           <div class="switch">
                                             <label>
                                               Sechaba
-                                                {{ domesticform.d_sechaba_checkbox}}
+                                                {{ domesticform.d_sechaba_checkbox }}
                                               <span class="lever"></span>
                                             </label>
                                           </div>
@@ -265,6 +269,7 @@
                                             <label>
                                               FNBB
                                               {{ domesticform.d_fnbb_checkbox }}
+                                                <span class="lever"></span>
                                             </label>
                                           </div>
                                         <!-- end of switch -->
@@ -351,8 +356,255 @@
                     </div>
                   </div>
               </form>
+
+                 <!-- Index Modal Trigger -->
+            <div>
+                  <a class="btn-floating btn-large waves-effect waves-light blue modal-trigger"  href="#indexStockModal">
+                      <i class="material-icons">playlist_add</i>
+                  </a>
+            </div>
+              <br>
+              <form id="form2" action="{% url 'market:chart' %}" method="post" >
+                   {% csrf_token %}
+                  <!-- Modal Structure -->
+                  <div id="indexStockModal" class="modal modal-fixed-footer">
+
+                    <div class="modal-content">
+
+                      <h4>Choose Stocks to form Indexies</h4>
+                        <div class=" container row col s12 m6 l4">
+                            <br>
+                             <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Barclays
+                                  <!--<input type="checkbox">-->
+                                    {{ indexform.i_barclays_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Bihl
+                                  <!--<input type="checkbox" >-->
+                                    {{ indexform.i_bihl_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                 <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Choppies
+                                  <!--<input type="checkbox">-->
+                                    {{ indexform.i_choppies_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                 <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Cresta
+                                  <!--<input type="checkbox">-->
+                                    {{ indexform.i_cresta_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                 <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Engen
+                                  <!--<input type="checkbox">-->
+                                    {{ indexform.i_engen_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                 <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Fnbb
+                                  <!--<input type="checkbox">-->
+                                    {{ indexform.i_fnbb_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                 <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Furnmart
+                                  <!--<input type="checkbox" >-->
+                                    {{ indexform.i_furnmart_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                 <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  G4S
+                                  <!--<input type="checkbox">-->
+                                    {{ indexform.i_g4s_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                 <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Letlole
+                                  <!--<input type="checkbox" >-->
+                                    {{ indexform.i_letlole_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                 <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                    Letshego
+                                  <!--<input type="checkbox" >-->
+                                    {{ indexform.i_letshego_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                 <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Minergy
+                                  <!--<input type="checkbox" >-->
+                                    {{ indexform.i_minergy_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                 <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Nap
+                                  <!--<input type="checkbox" >-->
+                                    {{ indexform.i_nap_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                 <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Olympia
+                                  <!--<input type="checkbox" >-->
+                                    {{ indexform.i_olympia_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                 <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Primetime
+                                  <!--<input type="checkbox">-->
+                                    {{ indexform.i_primetime_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                 <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Rcdp
+                                  <!--<input type="checkbox" >-->
+                                    {{ indexform.i_rcdp_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                 <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Sechaba
+                                  <!--<input type="checkbox" >-->
+                                    {{ indexform.i_sechaba_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                               <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  SeeCo
+                                  <!--<input type="checkbox">-->
+                                    {{ indexform.i_seedco_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                               <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Sefalana
+                                  <!--<input type="checkbox">-->
+                                    {{ indexform.i_sefalana_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                               <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Standchart
+                                  <!--<input type="checkbox" -->
+                                    {{ indexform.i_stanchart_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                               <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Turnstar
+                                  <!--<input type="checkbox">-->
+                                    {{ indexform.i_turnstar_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+                      <button class="modal-close waves-effect waves-green btn-flat cognac cream-text" type="submit">Okay</button>
+                    </div>
+                  </div>
+              </form>
+
               <div>
-                  <a class="btn-floating btn-large waves-effect waves-light blue"  href="{% url 'market:chart' %}">
+                  <a class="btn-floating btn-large waves-effect waves-light green-text"  href="{% url 'market:chart' %}">
                       <i class="material-icons">refresh</i>
                   </a>
               </div>
@@ -366,21 +618,61 @@
              </div>
         </section>
         <!-- end of graph -->
-        <!-- Daily dose && Articles -->
+        <!-- Daily dose  -->
         <section class="center col s12 m12 l2">
             <div class="row">
-                <div class="col s12 m12 l12"> Daily dose </div>
-                <div class="col s12 m12 l12"> Articles </div>
+                 <div class="carousel carousel-slider center">
+                     {% for stock, dose in daily.items %}
+                        <div class="carousel-item amber white-text" >
+                          <h2>{{ stock }}</h2>
+                          <p class="white-text">Price: {{ dose.0 }}</p>
+                            <p class="white-text">Price Change: {{ dose.1 }}</p>
+                            <p class="white-text">Volume: {{ dose.2 }}</p>
+                            <p class="white-text">Low: {{ dose.3 }}</p>
+                            <p class="white-text">High: {{ dose.4 }}</p>
+                        </div>
+                     {% endfor %}
+              </div>
             </div>
         </section>
-         <!-- end of Daily dose && Articles -->
+         <!-- end of Daily dose -->
     </div>
+    <br>
+        <!-- Articles -->
+    <div class="container">
+        <section class="container center col s12 m12 l2">
+            <div class="row">
+                <ul class="collapsible">
 
+                    {% for article in Articles %}
+                        <li>
+                          <div class="collapsible-header">{{ article.title }}</div>
+                          <div class="collapsible-body">
+                              <span>
+                                  {{ article.snippet }}
+                                  <a href="{% url 'articles:detail' slug=article.slug %}" class="deep-orange-text">
+                                      Read More
+                                  </a>
+                              </span>
+                          </div>
+                        </li>
+                     {% endfor %}
+
+                </ul>
+            </div>
+        </section>
+    </div>
+        <!-- end of Articles -->
     <br>
 {% endblock %}
 {% block jquery %}
     $('.modal').modal();
     $('.tabs').tabs();
+    $('.collapsible').collapsible();
+    $('.carousel.carousel-slider').carousel({
+        fullWidth: true,
+        indicators: true
+     });
     $("form").click(function (){
 
          let checkboxes = document.getElementsByClassName("domesticStocks");

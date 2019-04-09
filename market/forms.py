@@ -62,11 +62,24 @@ class DomesticSecurietiesForm(forms.Form):
     d_turnstar_checkbox.widget.attrs.update({'class': 'domesticStocks'})
 
 
-
-
-
-
-
-    #def add_prefix(self, field_name):
-        #field_name = 'domesticStock'
-        #return super(DomesticSecurietiesForm, self).add_prefix(field_name)
+class IndexSecurietiesForm(forms.Form):
+    i_barclays_checkbox = forms.BooleanField(required=False)
+    i_bihl_checkbox = forms.BooleanField(required=False)
+    i_choppies_checkbox = forms.BooleanField(required=False)
+    i_cresta_checkbox = forms.BooleanField(required=False)
+    i_engen_checkbox = forms.BooleanField(required=False)
+    i_fnbb_checkbox = forms.BooleanField(required=False)
+    i_furnmart_checkbox = forms.BooleanField(required=False)
+    i_g4s_checkbox = forms.BooleanField(required=False)
+    i_letlole_checkbox = forms.BooleanField(required=False)
+    i_letshego_checkbox = forms.BooleanField(required=False)
+    i_minergy_checkbox = forms.BooleanField(required=False)
+    i_nap_checkbox = forms.BooleanField(required=False)
+    i_olympia_checkbox = forms.BooleanField(required=False)
+    i_primetime_checkbox = forms.BooleanField(required=False)
+    i_rcdp_checkbox = forms.BooleanField(required=False)
+    i_sechaba_checkbox = forms.BooleanField(required=False)
+    i_seedco_checkbox = forms.BooleanField(required=False)
+    i_sefalana_checkbox = forms.BooleanField(required=False)
+    i_stanchart_checkbox = forms.BooleanField(required=False)
+    i_turnstar_checkbox = forms.BooleanField(required=False)

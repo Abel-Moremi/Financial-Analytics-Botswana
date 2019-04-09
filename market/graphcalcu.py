@@ -78,9 +78,16 @@ def triple_graph(df_01, df_02, df_03, graphs):
     return [triple_graph_schema(graphs[0], graphs[1], graphs[2]), df_to_json(triple_df)]
 
 
-def graph(selected_graphs):
+def graph(selected_graphs, securities_index_selected):
 
-    if len(selected_graphs) == 2:
+    if len(selected_graphs) == 0:
+        if len(securities_index_selected) > 0:
+            temp_list = ['Index']
+            return single_graph(temp_list, index_df(securities_index_selected))
+        temp_list = ['barclays']
+        return single_graph(temp_list, stock_df()['barclays'])
+
+    elif len(selected_graphs) == 2:
         return double_graph(stock_df()[selected_graphs[0]], stock_df()[selected_graphs[1]], selected_graphs)
 
     elif len(selected_graphs) == 3:
@@ -89,3 +96,19 @@ def graph(selected_graphs):
 
     return single_graph(selected_graphs, stock_df()[selected_graphs[0]])
 
+
+# Index calculation
+
+def index_df(securities_index_selected):
+    base_df = stock_df()[securities_index_selected[0]]
+    for security in securities_index_selected:
+        if security != securities_index_selected[0]:
+            new_df = base_df.merge(stock_df()[security], left_on='date', right_on='date', how='outer')
+            new_df.set_index('date')
+
+            base_df = new_df
+
+    base_df['index'] = base_df.mean(axis=1)
+    base_df = base_df[['date', 'index']]
+    # print(base_df.head())
+    return base_df
