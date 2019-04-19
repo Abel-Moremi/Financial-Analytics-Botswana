@@ -622,14 +622,58 @@
         <section class="center col s12 m12 l2">
             <div class="row">
                  <div class="carousel carousel-slider center">
+                    <div class="carousel-fixed-item center middle-indicator">
+                         <div class="left">
+                          <a class="movePrevCarousel middle-indicator-text waves-effect waves-light content-indicator white-text"><i class="material-icons">arrow_back_ios</i></a>
+                         </div>
+
+                         <div class="right">
+                         <a class=" moveNextCarousel middle-indicator-text waves-effect waves-light content-indicator white-text"><i class="material-icons">arrow_forward_ios</i></a>
+                         </div>
+                    </div>
                      {% for stock, dose in daily.items %}
-                        <div class="carousel-item amber white-text" >
+                        <div class="carousel-item {{ dose.0 }} white-text" >
                           <h2>{{ stock }}</h2>
-                          <p class="white-text">Price: {{ dose.0 }}</p>
-                            <p class="white-text">Price Change: {{ dose.1 }}</p>
-                            <p class="white-text">Volume: {{ dose.2 }}</p>
-                            <p class="white-text">Low: {{ dose.3 }}</p>
-                            <p class="white-text">High: {{ dose.4 }}</p>
+                            <ul>
+                                <li>
+                                     <div class="price">
+                                        <div class="label">Date: {{ dose.1 }}</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="price">
+                                         <span class="integer">{{ dose.2 }}</span>
+                                         <span class="currency">t</span>
+                                         <span class="period">/ close</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="price">
+                                          <div class="label">Volume: </div>
+                                         <span class="integer">{{ dose.4 }}</span>
+                                    </div>
+                                </li>
+                                 <li>
+                                    <div class="price">
+                                         <span class="currency">P</span>
+                                         <span class="integer">{{ dose.5 }}</span>
+                                         <span class="period">/ High</span>
+                                    </div>
+                                </li>
+                                 <li>
+                                    <div class="price">
+                                         <span class="currency">P</span>
+                                         <span class="integer">{{ dose.6 }}</span>
+                                         <span class="period">/ Low</span>
+                                    </div>
+                                </li>
+                                 <li>
+                                    <div class="price">
+                                          <div class="label">Change</div>
+                                         <span class="integer">{{ dose.3 }}</span>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                      {% endfor %}
               </div>
@@ -639,6 +683,17 @@
     </div>
     <br>
         <!-- Articles -->
+
+      <!--  article title -->
+    <div class="center-align" style="margin-bottom: 20px;">
+        <h5 style="font-weight: bold;">Articles</h5>
+        <h6 class="grey-text text-darken-2 container">
+            Be informed and Educated
+        </h6>
+    </div>
+    <!-- end of article title -->
+
+
     <div class="container">
         <section class="container center col s12 m12 l2">
             <div class="row">
@@ -669,10 +724,27 @@
     $('.modal').modal();
     $('.tabs').tabs();
     $('.collapsible').collapsible();
-    $('.carousel.carousel-slider').carousel({
-        fullWidth: true,
-        indicators: true
-     });
+
+    // start carousel
+   $('.carousel.carousel-slider').carousel({
+      fullWidth: true,
+      indicators: false
+   });
+
+   // move next carousel
+   $('.moveNextCarousel').click(function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      $('.carousel').carousel('next');
+   });
+
+   // move prev carousel
+   $('.movePrevCarousel').click(function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      $('.carousel').carousel('prev');
+   });
+
     $("form").click(function (){
 
          let checkboxes = document.getElementsByClassName("domesticStocks");

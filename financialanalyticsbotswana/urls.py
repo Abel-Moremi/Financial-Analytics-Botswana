@@ -22,6 +22,8 @@ from django.conf import settings
 
 
 urlpatterns = [
+    path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
+    path('jet/', include('jet.urls', 'jet')),  # Django JET URLS
     path('admin/', admin.site.urls),
     path('market/', include('market.urls')),
     path('accounts/', include('accounts.urls')),

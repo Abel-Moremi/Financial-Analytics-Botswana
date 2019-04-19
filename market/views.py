@@ -13,9 +13,20 @@ import market.models as stockmodel
 def chart(request):
 
     def dailydose(stock):
+        change = stock[1].price - stock[0].price
+
+        if change > 0:
+            color = 'green'
+        elif change < 0:
+            color = 'red'
+        else:
+            color = 'blue'
+
         return [
+                color,
+                stock[0].date,
                 stock[0].price,
-                stock[1].price - stock[0].price,
+                change,
                 stock[0].volume,
                 stock[0].low,
                 stock[0].high
@@ -108,7 +119,7 @@ def chart(request):
             'securities': securities_selected,
             'index': securities_index_selected
         }
-        request.session['graphs'] = graphs
+       # request.session['graphs'] = graphs
     else:
 
         if len(securities_selected) == 0:
@@ -123,7 +134,7 @@ def chart(request):
             'index': securities_index_selected
         }
 
-        request.session['graphs'] = graphs
+        # request.session['graphs'] = graphs
 
     print('Selected' + str(securities_selected))
     print('Index' + str(securities_index_selected))
