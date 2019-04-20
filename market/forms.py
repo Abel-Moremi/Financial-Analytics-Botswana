@@ -40,27 +40,10 @@ class DomesticSecurietiesForm(forms.Form):
     d_stanchart_checkbox = forms.BooleanField(required=False)
     d_turnstar_checkbox = forms.BooleanField(required=False)
 
-    d_barclays_checkbox.widget.attrs.update({'class': 'domesticStocks'})
-    d_bihl_checkbox.widget.attrs.update({'class': 'domesticStocks'})
-    d_choppies_checkbox.widget.attrs.update({'class': 'domesticStocks'})
-    d_cresta_checkbox.widget.attrs.update({'class': 'domesticStocks'})
-    d_engen_checkbox.widget.attrs.update({'class': 'domesticStocks'})
-    d_fnbb_checkbox.widget.attrs.update({'class': 'domesticStocks'})
-    d_furnmart_checkbox.widget.attrs.update({'class': 'domesticStocks'})
-    d_g4s_checkbox.widget.attrs.update({'class': 'domesticStocks'})
-    d_letlole_checkbox.widget.attrs.update({'class': 'domesticStocks'})
-    d_letshego_checkbox.widget.attrs.update({'class': 'domesticStocks'})
-    d_minergy_checkbox.widget.attrs.update({'class': 'domesticStocks'})
-    d_nap_checkbox.widget.attrs.update({'class': 'domesticStocks'})
-    d_olympia_checkbox.widget.attrs.update({'class': 'domesticStocks'})
-    d_primetime_checkbox.widget.attrs.update({'class': 'domesticStocks'})
-    d_rcdp_checkbox.widget.attrs.update({'class': 'domesticStocks'})
-    d_sechaba_checkbox.widget.attrs.update({'class': 'domesticStocks'})
-    d_seedco_checkbox.widget.attrs.update({'class': 'domesticStocks'})
-    d_sefalana_checkbox.widget.attrs.update({'class': 'domesticStocks'})
-    d_stanchart_checkbox.widget.attrs.update({'class': 'domesticStocks'})
-    d_turnstar_checkbox.widget.attrs.update({'class': 'domesticStocks'})
-
+    def __init__(self, *args, **kwargs):
+        super(DomesticSecurietiesForm, self).__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'domesticStocks'
 
 class IndexSecurietiesForm(forms.Form):
     i_barclays_checkbox = forms.BooleanField(required=False)
@@ -83,3 +66,8 @@ class IndexSecurietiesForm(forms.Form):
     i_sefalana_checkbox = forms.BooleanField(required=False)
     i_stanchart_checkbox = forms.BooleanField(required=False)
     i_turnstar_checkbox = forms.BooleanField(required=False)
+
+    def __init__(self, *args, **kwargs):
+        super(IndexSecurietiesForm, self).__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'indexfield'

@@ -1,9 +1,42 @@
 {% extends 'base_layout.html' %}
 
+{% load static from staticfiles %}
+
+
 {% block title %}
     FAB | Home
 {% endblock %}
 
 {% block content %}
-    <p>I am the homePage</p>
-{% endblock %}ml>
+     <!-- Section: Slider -->
+  <section class="slider">
+    <ul class="slides">
+      <li>
+        <img src="{% static 'img/home/slider01.jpg' %}" alt="">
+        <div class="caption center-align">
+          <h2>Plan for your financial freedom</h2>
+          <h5 class="light grey-text text-lighten-3 hide-on-small-only">Live like a slave today so that tomorrow you may live like a king</h5>
+        </div>
+      </li>
+      <li>
+        <img src="{% static 'img/home/slider02.jpg' %}" alt="">
+        <div class="caption left-align">
+          <h2>Money language</h2>
+          <h5 class="light grey-text text-lighten-3 hide-on-small-only">Let the knowledge save you</h5>
+        </div>
+      </li>
+      <li>
+        <img src="{% static 'img/home/slider02.jpg' %}" alt="">
+        <div class="caption right-align">
+          <h2>The is no change without sacrifice</h2>
+          <h5 class="light grey-text text-lighten-3 hide-on-small-only">whats your dream?</h5>
+        </div>
+      </li>
+    </ul>
+  </section>
+{% endblock %}
+{% block jquery %}
+    $('.slider').slider({
+      indicators: false
+    });
+{% endblock %}

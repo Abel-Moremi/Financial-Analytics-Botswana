@@ -76,280 +76,235 @@
                    {% csrf_token %}
                   <!-- Modal Structure -->
                   <div id="domesticStockModal" class="modal modal-fixed-footer">
-                    <div class="modal-content">
-                      <h4>Domestic Stocks</h4>
-                        <!-- tab stocks -->
-                        <div>
-                            <ul class="tabs">
-                                <li class="tab">
-                                    <a href="#financialSev" class="cognac-text text-darken-4">Financial & nsurance</a>
-                                </li>
-                                <li class="tab">
-                                    <a href="#retail" class="cognac-text text-darken-4">Retail</a>
-                                </li>
-                                <li class="tab">
-                                    <a href="#property" class="cognac-text text-darken-4">Property</a>
-                                </li>
-                                <li class="tab">
-                                    <a href="#banking" class="cognac-text text-darken-4">Banking</a>
-                                </li>
-                                <li class="tab">
-                                    <a href="#other" class="cognac-text text-darken-4">Other</a>
-                                </li>
-                            </ul>
-                           <!-- financial Services and Insurance tab -->
-                            <div class="col s12" id ="financialSev">
-                                <div class="container">
+                     <div class="modal-content">
 
-                                    <div class="col s12 m6 l6 center-align">
-                                        <br>
-                                        <!-- Switch -->
-                                          <div class="switch">
-                                            <label>
-                                              Bihl
-                                              <!--<input type="checkbox" name="bihl">-->
-                                                {{ domesticform.d_bihl_checkbox }}
-                                              <span class="lever"></span>
-                                            </label>
-                                          </div>
-                                        <!-- end of switch -->
-                                        <br>
-                                        <!-- Switch -->
-                                          <div class="switch">
-                                            <label>
-                                              Letshego
-                                             {{ domesticform.d_letshego_checkbox }}
-                                              <span class="lever"></span>
-                                            </label>
-                                          </div>
-                                        <!-- end of switch -->
-                                    </div>
-
-                                </div>
+                      <h4>Choose Stocks Domestic Stocks</h4>
+                        <div class=" container row col s12 m6 l4">
+                            <br>
+                             <div class="center-align" style="margin-bottom: 20px;">
+                                <h3 style="font-weight: bold;">Financial And Insurance</h3>
                             </div>
-                            <!-- end of financial Services and Insurance tab -->
-                            <!-- Retail and Wholesale tab -->
-                            <div class="col s12" id ="retail">
-                                <div class="container">
-
-                                    <div class="col s12 m6 l6">
-                                        <br>
-                                        <!-- Switch -->
-                                          <div class="switch">
-                                            <label>
-                                              Choppies
-                                               {{ domesticform.d_choppies_checkbox }}
-                                              <span class="lever"></span>
-                                            </label>
-                                          </div>
-                                        <!-- end of switch -->
-                                        <br>
-                                        <!-- Switch -->
-                                          <div class="switch">
-                                            <label>
-                                              Furnmart
-                                              {{ domesticform.d_furnmart_checkbox }}
-                                              <span class="lever"></span>
-                                            </label>
-                                          </div>
-                                        <!-- end of switch -->
-                                        <br>
-                                         <!-- Switch -->
-                                          <div class="switch">
-                                            <label>
-                                              Sechaba
-                                                {{ domesticform.d_sechaba_checkbox }}
-                                              <span class="lever"></span>
-                                            </label>
-                                          </div>
-                                        <!-- end of switch -->
-                                        <br>
-                                         <!-- Switch -->
-                                          <div class="switch">
-                                            <label>
-                                              Sefalana
-                                            {{ domesticform.d_sefalana_checkbox }}
-                                              <span class="lever"></span>
-                                            </label>
-                                          </div>
-                                        <!-- end of switch -->
-                                        <br>
-                                        <!-- Switch -->
-                                          <div class="switch">
-                                            <label>
-                                              Olympia
-                                             {{ domesticform.d_olympia_checkbox }}
-                                              <span class="lever"></span>
-                                            </label>
-                                          </div>
-                                        <!-- end of switch -->
-                                    </div>
-
-                                </div>
-                            </div>
-                            <!-- end Retail and Wholesale tab -->
-                            <!-- Property tab -->
-                            <div class="col s12" id ="property">
-                                <div class="container">
-
-                                    <div class="col s12 m6 l6">
-                                        <br>
-                                        <!-- Switch -->
-                                          <div class="switch">
-                                            <label>
-                                              Turnstar
-                                             {{ domesticform.d_turnstar_checkbox }}
-                                              <span class="lever"></span>
-                                            </label>
-                                          </div>
-                                        <!-- end of switch -->
-                                        <br>
-                                        <!-- Switch -->
-                                          <div class="switch">
-                                            <label>
-                                              RDCP
-                                             {{ domesticform.d_rcdp_checkbox }}
-                                              <span class="lever"></span>
-                                            </label>
-                                          </div>
-                                        <!-- end of switch -->
-                                        <br>
-                                         <!-- Switch -->
-                                          <div class="switch">
-                                            <label>
-                                              PrimeTime
-                                             {{ domesticform.d_primetime_checkbox }}
-                                              <span class="lever"></span>
-                                            </label>
-                                          </div>
-                                        <!-- end of switch -->
-                                        <br>
-                                         <!-- Switch -->
-                                          <div class="switch">
-                                            <label>
-                                              Letlole
-                                             {{ domesticform.d_letlole_checkbox }}
-                                              <span class="lever"></span>
-                                            </label>
-                                          </div>
-                                        <!-- end of switch -->
-                                        <br>
-                                        <!-- Switch -->
-                                          <div class="switch">
-                                            <label>
-                                              NAP
-                                              {{ domesticform.d_nap_checkbox }}
-                                              <span class="lever"></span>
-                                            </label>
-                                          </div>
-                                        <!-- end of switch -->
-                                    </div>
-
-                                </div>
-                            </div>
-                            <!-- end Property tab -->
-                             <!-- Banking tab -->
-                            <div class="col s12" id ="banking">
-                                <div class="container">
-
-                                    <div class="col s12 m6 l6 center-align">
-                                        <br>
-                                        <!-- Switch -->
-                                          <div class="switch">
-                                            <label>
-                                              Barclays
-                                              {{ domesticform.d_barclays_checkbox }}
-                                              <span class="lever"></span>
-                                            </label>
-                                          </div>
-                                        <!-- end of switch -->
-                                        <br>
-                                        <!-- Switch -->
-                                          <div class="switch">
-                                            <label>
-                                              FNBB
-                                              {{ domesticform.d_fnbb_checkbox }}
-                                                <span class="lever"></span>
-                                            </label>
-                                          </div>
-                                        <!-- end of switch -->
-                                        <br>
-                                         <!-- Switch -->
-                                          <div class="switch">
-                                            <label>
-                                              Stanchart
-                                              {{ domesticform.d_stanchart_checkbox }}
-                                              <span class="lever"></span>
-                                            </label>
-                                          </div>
-                                        <!-- end of switch -->
-                                    </div>
-
-                                </div>
-                            </div>
-                            <!-- Banking tab -->
-                             <!-- Other tab -->
-                            <div class="col s12" id ="other">
-                                <div class="container">
-
-                                    <div class="col s12 m6 l6">
-                                        <br>
-                                        <!-- Switch -->
-                                          <div class="switch">
-                                            <label>
-                                              G4S
-                                             {{ domesticform.d_g4s_checkbox }}
-                                              <span class="lever"></span>
-                                            </label>
-                                          </div>
-                                        <!-- end of switch -->
-                                        <br>
-                                        <!-- Switch -->
-                                          <div class="switch">
-                                            <label>
-                                              Cresta
-                                              {{ domesticform.d_cresta_checkbox }}
-                                              <span class="lever"></span>
-                                            </label>
-                                          </div>
-                                        <!-- end of switch -->
-                                        <br>
-                                         <!-- Switch -->
-                                          <div class="switch">
-                                            <label>
-                                              Engen
-                                             {{ domesticform.d_engen_checkbox }}
-                                              <span class="lever"></span>
-                                            </label>
-                                          </div>
-                                        <!-- end of switch -->
-                                        <br>
-                                        <!-- Switch -->
-                                          <div class="switch">
-                                            <label>
-                                              Minergy
-                                              {{ domesticform.d_minergy_checkbox }}
-                                              <span class="lever"></span>
-                                            </label>
-                                          </div>
-                                        <!-- end of switch -->
-                                        <br>
-                                        <!-- Switch -->
-                                          <div class="switch">
-                                            <label>
-                                              Seed Co
-                                              {{ domesticform.d_seedco_checkbox }}
-                                              <span class="lever"></span>
-                                            </label>
-                                          </div>
-                                        <!-- end of switch -->
-                                    </div>
-
-                                </div>
-                            </div>
-                            <!-- Other tab -->
+                             <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Barclays
+                                  <!--<input type="checkbox">-->
+                                    {{ domesticform.d_barclays_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Bihl
+                                  <!--<input type="checkbox" >-->
+                                    {{ domesticform.d_bihl_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                 <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Choppies
+                                  <!--<input type="checkbox">-->
+                                    {{domesticform.d_choppies_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                 <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Cresta
+                                  <!--<input type="checkbox">-->
+                                    {{ domesticform.d_cresta_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                 <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Engen
+                                  <!--<input type="checkbox">-->
+                                    {{ domesticform.d_engen_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                 <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Fnbb
+                                  <!--<input type="checkbox">-->
+                                    {{ domesticform.d_fnbb_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                 <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Furnmart
+                                  <!--<input type="checkbox" >-->
+                                    {{ domesticform.d_furnmart_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                 <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  G4S
+                                  <!--<input type="checkbox">-->
+                                    {{ domesticform.d_g4s_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                 <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Letlole
+                                  <!--<input type="checkbox" >-->
+                                    {{ domesticform.d_letlole_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                 <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                    Letshego
+                                  <!--<input type="checkbox" >-->
+                                    {{ domesticform.d_letshego_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                 <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Minergy
+                                  <!--<input type="checkbox" >-->
+                                    {{ domesticform.d_minergy_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                 <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Nap
+                                  <!--<input type="checkbox" >-->
+                                    {{ domesticform.d_nap_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                 <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Olympia
+                                  <!--<input type="checkbox" >-->
+                                    {{ domesticform.d_olympia_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                 <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Primetime
+                                  <!--<input type="checkbox">-->
+                                    {{ domesticform.d_primetime_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                 <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Rcdp
+                                  <!--<input type="checkbox" >-->
+                                    {{ domesticform.d_rcdp_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                                 <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Sechaba
+                                  <!--<input type="checkbox" >-->
+                                    {{ domesticform.d_sechaba_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                               <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  SeeCo
+                                  <!--<input type="checkbox">-->
+                                    {{ domesticform.d_seedco_checkbox}}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                               <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Sefalana
+                                  <!--<input type="checkbox">-->
+                                    {{ domesticform.d_sefalana_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                               <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Standchart
+                                  <!--<input type="checkbox" -->
+                                    {{ domesticform.d_stanchart_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
+                               <br>
+                              <!-- Switch -->
+                              <div class="switch">
+                                <label>
+                                  Turnstar
+                                  <!--<input type="checkbox">-->
+                                    {{ domesticform.d_turnstar_checkbox }}
+                                  <span class="lever"></span>
+                                </label>
+                              </div>
+                            <!-- end of switch -->
                         </div>
-                        <!-- end of tab stocks -->
+
                     </div>
                     <div class="modal-footer">
                       <button class="modal-close waves-effect waves-green btn-flat cognac cream-text" type="submit">Okay</button>
@@ -719,6 +674,7 @@
     </div>
         <!-- end of Articles -->
     <br>
+    <script src="{% static 'market.js' %}"></script>
 {% endblock %}
 {% block jquery %}
     $('.modal').modal();
